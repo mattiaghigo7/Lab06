@@ -40,7 +40,7 @@ public class Rilevamento {
 
 	 @Override
 	 public String toString() {
-	 return localita + " " + data + " " + umidita;
+	 return localita;
 	 }
 
 //	@Override

@@ -13,7 +13,7 @@ public class MeteoDAO {
 	
 	public List<Rilevamento> getAllRilevamenti() {
 
-		final String sql = "SELECT Localita, Data, Umidita FROM situazione ORDER BY data ASC";
+		final String sql = "SELECT Localita, Data, Umidita FROM situazione ORDER BY Localita ASC";
 
 		List<Rilevamento> rilevamenti = new ArrayList<Rilevamento>();
 
@@ -42,7 +42,8 @@ public class MeteoDAO {
 	public List<Rilevamento> getAllRilevamentiLocalitaMese(int mese, String localita) {
 		final String sql = "SELECT s.Localita, s.`Data`, s.Umidita "
 				+ "FROM situazione s "
-				+ "WHERE s.Localita=? AND MONTH(s.`Data`)=?";
+				+ "WHERE s.Localita=? AND MONTH(s.`Data`)=? "
+				+ "ORDER BY Data";
 
 		List<Rilevamento> rilevamenti = new ArrayList<Rilevamento>();
 

@@ -38,7 +38,7 @@ public class Model {
 	// of course you can change the String output with what you think works best
 	public List<Rilevamento> trovaSequenza(int mese) {
 		sequenza = new LinkedList<Rilevamento>();
-		costoMinore=10000;
+		costoMinore=Integer.MAX_VALUE;
 		for(Citta c : cittaPresenti) {
 			c.setCounter(0);
 			c.setRilevamenti(meteoDAO.getAllRilevamentiLocalitaMese(mese, c.getNome()));
@@ -69,7 +69,7 @@ public class Model {
 	
 	private int calcolaCosto(List<Rilevamento> parziale) {
 		if(parziale==null || parziale.size()==0) {
-			return 10000;
+			return Integer.MAX_VALUE;
 		}
 		String precedente = parziale.get(0).getLocalita();
 		int costo = 0;
