@@ -25,6 +25,7 @@ public class Model {
 				cittaPresenti.add(c);
 			}
 		}
+		cittaPresenti.sort(null);
 	}
 
 	public List<String> getUmiditaMedia(int mese) {

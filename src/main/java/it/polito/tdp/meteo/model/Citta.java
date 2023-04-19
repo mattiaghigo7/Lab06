@@ -2,7 +2,7 @@ package it.polito.tdp.meteo.model;
 
 import java.util.List;
 
-public class Citta {
+public class Citta implements Comparable<Citta>{
 	
 	
 	private String nome;
@@ -80,6 +80,11 @@ public class Citta {
 	@Override
 	public String toString() {
 		return nome;
+	}
+
+	@Override
+	public int compareTo(Citta o) {
+		return this.nome.compareTo(o.nome);
 	}
 	
 
