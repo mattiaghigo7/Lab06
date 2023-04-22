@@ -44,6 +44,7 @@ public class FXMLController {
     	for(Rilevamento r : risultato) {
     		this.txtResult.appendText(r+"\n");
     	}
+    	this.txtResult.appendText(""+model.getCostoMinore());
     }
 
     @FXML

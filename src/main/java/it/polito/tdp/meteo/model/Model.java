@@ -16,6 +16,10 @@ public class Model {
 	private final static int NUMERO_GIORNI_CITTA_MAX = 6;
 	private final static int NUMERO_GIORNI_TOTALI = 15;
 
+	public int getCostoMinore() {
+		return costoMinore;
+	}
+
 	public Model() {
 		this.meteoDAO = new MeteoDAO();
 		this.cittaPresenti = new LinkedList<Citta>();
@@ -36,7 +40,6 @@ public class Model {
 		return umiditaMediaCitta;
 	}
 	
-	// of course you can change the String output with what you think works best
 	public List<Rilevamento> trovaSequenza(int mese) {
 		sequenza = new LinkedList<Rilevamento>();
 		costoMinore=Integer.MAX_VALUE;
@@ -49,6 +52,7 @@ public class Model {
 		return sequenza;
 	}
 	
+	//ricorsione
 	private void cerca(List<Rilevamento> parziale, int livello) {
 		if(livello==Model.NUMERO_GIORNI_TOTALI) {
 			if(this.calcolaCosto(parziale)<costoMinore) {
@@ -69,9 +73,6 @@ public class Model {
 	}
 	
 	private int calcolaCosto(List<Rilevamento> parziale) {
-		if(parziale==null || parziale.size()==0) {
-			return Integer.MAX_VALUE;
-		}
 		String precedente = parziale.get(0).getLocalita();
 		int costo = 0;
 		for (Rilevamento r : parziale) {
